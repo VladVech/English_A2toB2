@@ -15,54 +15,87 @@
     </style>
 </head>
 <body>
-    <h1>My Weekend</h1>
+    <h1>Anna’s Morning</h1>
     <p><strong>Listen to the audio and read the script below:</strong></p>
     <audio controls>
-        <source src="alex_weekend.mp3" type="audio/mpeg">
+        <source src="annas_morning.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
     <h2>Comprehension Questions</h2>
+
 <div class="question">
-<p>1. What did Alex do on Saturday morning?</p>
-<label><input type="radio" name="q1" value="he_watched_tv"> He watched TV</label><br>
-<label><input type="radio" name="q1" value="he_cleaned_his_apartment"> He cleaned his apartment</label><br>
-<label><input type="radio" name="q1" value="he_went_shopping"> He went shopping</label><br>
-<button onclick="checkChoice('q1', 'he_cleaned_his_apartment', 'r1')">Check</button>
-<div id="r1" class="result"></div>
+  <p>1. What time does Anna wake up?</p>
+  <label><input type="radio" name="q1" value="6"> 6 o’clock</label><br>
+  <label><input type="radio" name="q1" value="7"> 7 o’clock</label><br>
+  <label><input type="radio" name="q1" value="8"> 8 o’clock</label><br>
+  <button onclick="checkChoice('q1', '7', 'r1')">Check</button>
+  <div id="r1" class="result"></div>
 </div>
+
 <div class="question">
-<p>2. Where did Alex meet his friends?</p>
-<label><input type="radio" name="q2" value="at_school"> At school</label><br>
-<label><input type="radio" name="q2" value="at_a_restaurant"> At a restaurant</label><br>
-<label><input type="radio" name="q2" value="at_home"> At home</label><br>
-<button onclick="checkChoice('q2', 'at_a_restaurant', 'r2')">Check</button>
-<div id="r2" class="result"></div>
+  <p>2. How does she go to school?</p>
+  <label><input type="radio" name="q2" value="on_foot"> On foot</label><br>
+  <label><input type="radio" name="q2" value="by_bus"> By bus</label><br>
+  <label><input type="radio" name="q2" value="by_car"> By car</label><br>
+  <button onclick="checkChoice('q2', 'by_bus', 'r2')">Check</button>
+  <div id="r2" class="result"></div>
 </div>
+
 <div class="question">
-<p>3. What did Alex do on Sunday?</p>
-<label><input type="radio" name="q3" value="he_went_to_the_cinema"> He went to the cinema</label><br>
-<label><input type="radio" name="q3" value="he_read_a_book_and_watched_a_movie"> He read a book and watched a movie</label><br>
-<label><input type="radio" name="q3" value="he_worked_in_the_garden"> He worked in the garden</label><br>
-<button onclick="checkChoice('q3', 'he_read_a_book_and_watched_a_movie', 'r3')">Check</button>
-<div id="r3" class="result"></div>
+  <p>3. What does she study?</p>
+  <label><input type="radio" name="q3" value="math_and_history"> Math and history</label><br>
+  <label><input type="radio" name="q3" value="english_and_computer_science"> English and computer science</label><br>
+  <label><input type="radio" name="q3" value="biology_and_art"> Biology and art</label><br>
+  <button onclick="checkChoice('q3', 'english_and_computer_science', 'r3')">Check</button>
+  <div id="r3" class="result"></div>
 </div>
+
 <div class="question">
-<p>4. Who did he help on Sunday?</p>
-<label><input type="radio" name="q4" value="his_brother"> His brother</label><br>
-<label><input type="radio" name="q4" value="his_younger_sister"> His younger sister</label><br>
-<label><input type="radio" name="q4" value="his_mother"> His mother</label><br>
-<button onclick="checkChoice('q4', 'his_younger_sister', 'r4')">Check</button>
-<div id="r4" class="result"></div>
+  <p>4. Where does Anna have lunch?</p>
+  <label><input type="radio" name="q4" value="at_home"> At home</label><br>
+  <label><input type="radio" name="q4" value="in_a_cafe"> In a café</label><br>
+  <label><input type="radio" name="q4" value="in_the_library"> In the library</label><br>
+  <button onclick="checkChoice('q4', 'in_a_cafe', 'r4')">Check</button>
+  <div id="r4" class="result"></div>
 </div>
+
 <div class="question">
-<p>5. How did Alex feel about the weekend?</p>
-<label><input type="radio" name="q5" value="tired"> Tired</label><br>
-<label><input type="radio" name="q5" value="relaxed"> Relaxed</label><br>
-<label><input type="radio" name="q5" value="angry"> Angry</label><br>
-<button onclick="checkChoice('q5', 'relaxed', 'r5')">Check</button>
-<div id="r5" class="result"></div>
+  <p>5. What does she do in the afternoon?</p>
+  <label><input type="radio" name="q5" value="goes_home"> Goes home</label><br>
+  <label><input type="radio" name="q5" value="goes_to_the_gym"> Goes to the gym</label><br>
+  <label><input type="radio" name="q5" value="goes_to_the_library"> Goes to the library</label><br>
+  <button onclick="checkChoice('q5', 'goes_to_the_library', 'r5')">Check</button>
+  <div id="r5" class="result"></div>
 </div>
+
+<div class="question">
+  <p>6. What does Anna do in the evening?</p>
+  <label><input type="radio" name="q6" value="plays_sports"> Plays sports</label><br>
+  <label><input type="radio" name="q6" value="watches_tv_or_chats_online"> Watches TV or chats online</label><br>
+  <label><input type="radio" name="q6" value="cooks_dinner"> Cooks dinner</label><br>
+  <button onclick="checkChoice('q6', 'watches_tv_or_chats_online', 'r6')">Check</button>
+  <div id="r6" class="result"></div>
+</div>
+
+<div class="question">
+  <p>7. What time does she go to bed?</p>
+  <label><input type="radio" name="q7" value="9"> 9 o’clock</label><br>
+  <label><input type="radio" name="q7" value="10"> 10 o’clock</label><br>
+  <label><input type="radio" name="q7" value="11"> 11 o’clock</label><br>
+  <button onclick="checkChoice('q7', '10', 'r7')">Check</button>
+  <div id="r7" class="result"></div>
+</div>
+
+<div class="question">
+  <p>8. How does Anna feel about her day?</p>
+  <label><input type="radio" name="q8" value="tired"> Tired</label><br>
+  <label><input type="radio" name="q8" value="bored"> Bored</label><br>
+  <label><input type="radio" name="q8" value="happy_and_busy"> Happy and busy</label><br>
+  <button onclick="checkChoice('q8', 'happy_and_busy', 'r8')">Check</button>
+  <div id="r8" class="result"></div>
+</div>
+
 
 
     
@@ -81,12 +114,16 @@
 
     
 <h2>Script</h2>
-    <p>My name is Alex, and I want to tell you about my weekend.<br>
-    On Saturday morning, I cleaned my apartment and did some laundry. After that, I went to the park with my dog.
-    The weather was sunny, and many people were outside.<br><br>
-    In the evening, I met my friends at a small restaurant. We ate pizza and talked about our week.<br><br>
-    On Sunday, I stayed at home. I read a book and watched a movie. I also called my parents and helped my younger sister with her homework.<br><br>
-    It was a simple weekend, but I really enjoyed it. I felt relaxed and ready for the new week.</p>
+    <p>Anna is a student. She lives in a small apartment in the city.<br>
+    Every morning, she wakes up at 7 o’clock. She takes a quick shower and drinks a cup of coffee.<br>
+    After breakfast, she takes the bus to school. It usually takes 20 minutes.<br><br>
+    Her first class starts at 8:30. She studies English and computer science.<br>
+    Anna likes her teachers and enjoys learning new things.<br>
+    At 12 o’clock, she has lunch with her classmates. They eat in a small café near the school.<br><br>
+    In the afternoon, Anna sometimes goes to the library. She reads books or works on her homework.<br>
+    In the evening, she watches TV or talks to her family online.<br>
+    She usually goes to bed at 10 o’clock.<br><br>
+    Anna’s days are simple, but she feels happy and busy.</p>
 
     <script>
         function checkTextAnswer(inputId, correctAnswer) {
@@ -145,21 +182,23 @@
 
 
 <h2>Speaking Practice</h2>
-<p>Practice speaking by answering this question:</p>
-<p><strong>“What do you usually do on the weekend?”</strong></p>
+<p>Practice speaking by describing Anna’s typical day:</p>
+<p><strong>“What does Anna usually do during the day?”</strong></p>
 
 <p>You can use these sentence starters:</p>
 <ul>
-    <li>I usually...</li>
-    <li>On Saturday, I...</li>
-    <li>In the morning, I often...</li>
-    <li>Sometimes I...</li>
-    <li>I like to...</li>
-    <li>In the evening, I...</li>
-    <li>On Sunday, I often...</li>
-    <li>My favorite activity is...</li>
-    <li>I don't like to...</li>
+  <li>Anna is a student. She lives in...</li>
+  <li>Every morning, she...</li>
+  <li>She usually wakes up at...</li>
+  <li>After breakfast, she...</li>
+  <li>At school, she studies...</li>
+  <li>At lunchtime, she...</li>
+  <li>In the afternoon, Anna sometimes...</li>
+  <li>In the evening, she...</li>
+  <li>She usually goes to bed at...</li>
+  <li>Anna feels...</li>
 </ul>
+
 
 <button onclick="startRecording()">🎙️ Start Recording</button>
 <button onclick="pauseRecording()">⏸️ Pause</button>
