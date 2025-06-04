@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anna’s Morning – All Radio Format</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+        h1, h2 { color: #2c3e50; }
+        audio { width: 100%; margin: 20px 0; }
+        .question { margin: 20px 0; }
+        .result { font-weight: bold; margin-left: 10px; }
+        button { margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Anna’s Morning</h1>
+    <p><strong>Listen to the audio and read the script below:</strong></p>
+    <audio controls>
+        <source src="annas_morning.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h2>Comprehension Questions</h2>
+<div class="question"><p>1. What time does Anna wake up?</p><label><input type="radio" name="q1" value="6"> 6</label><br><label><input type="radio" name="q1" value="7"> 7</label><br><label><input type="radio" name="q1" value="8"> 8</label><br><button onclick="checkChoice('q1', '7', 'r1')">Check</button><span class="result" id="r1"></span></div><div class="question"><p>2. How does she go to school?</p><label><input type="radio" name="q2" value="car"> Car</label><br><label><input type="radio" name="q2" value="bus"> Bus</label><br><label><input type="radio" name="q2" value="bike"> Bike</label><br><button onclick="checkChoice('q2', 'bus', 'r2')">Check</button><span class="result" id="r2"></span></div><div class="question"><p>3. What does she study?</p><label><input type="radio" name="q3" value="math"> Math</label><br><label><input type="radio" name="q3" value="english and computer science"> English and computer science</label><br><label><input type="radio" name="q3" value="history"> History</label><br><button onclick="checkChoice('q3', 'english and computer science', 'r3')">Check</button><span class="result" id="r3"></span></div><div class="question"><p>4. Where does she have lunch?</p><label><input type="radio" name="q4" value="home"> Home</label><br><label><input type="radio" name="q4" value="cafe"> Cafe</label><br><label><input type="radio" name="q4" value="school"> School</label><br><button onclick="checkChoice('q4', 'cafe', 'r4')">Check</button><span class="result" id="r4"></span></div><div class="question"><p>5. What does Anna do in the afternoon?</p><label><input type="radio" name="q5" value="library"> Library</label><br><label><input type="radio" name="q5" value="gym"> Gym</label><br><label><input type="radio" name="q5" value="café"> Café</label><br><button onclick="checkChoice('q5', 'library', 'r5')">Check</button><span class="result" id="r5"></span></div><div class="question"><p>6. How does she relax in the evening?</p><label><input type="radio" name="q6" value="sports"> Sports</label><br><label><input type="radio" name="q6" value="tv"> Tv</label><br><label><input type="radio" name="q6" value="reads"> Reads</label><br><button onclick="checkChoice('q6', 'tv', 'r6')">Check</button><span class="result" id="r6"></span></div><div class="question"><p>7. What time does she go to bed?</p><label><input type="radio" name="q7" value="9"> 9</label><br><label><input type="radio" name="q7" value="10"> 10</label><br><label><input type="radio" name="q7" value="11"> 11</label><br><button onclick="checkChoice('q7', '10', 'r7')">Check</button><span class="result" id="r7"></span></div><div class="question"><p>8. How does Anna feel about her day?</p><label><input type="radio" name="q8" value="sad"> Sad</label><br><label><input type="radio" name="q8" value="tired"> Tired</label><br><label><input type="radio" name="q8" value="happy"> Happy</label><br><button onclick="checkChoice('q8', 'happy', 'r8')">Check</button><span class="result" id="r8"></span></div>
+<h2>Script</h2>
+<p>Anna is a student. She lives in a small apartment in the city.<br>
+Every morning, she wakes up at 7 o’clock. She takes a quick shower and drinks a cup of coffee.<br>
+After breakfast, she takes the bus to school. It usually takes 20 minutes.<br><br>
+Her first class starts at 8:30. She studies English and computer science.<br>
+Anna likes her teachers and enjoys learning new things.<br>
+At 12 o’clock, she has lunch with her classmates. They eat in a small café near the school.<br><br>
+In the afternoon, Anna sometimes goes to the library. She reads books or works on her homework.<br>
+In the evening, she watches TV or talks to her family online.<br>
+She usually goes to bed at 10 o’clock.<br><br>
+Anna’s days are simple, but she feels happy and busy.</p>
+
+<script>
+    function checkChoice(name, correct, resultId) {
+        const radios = document.getElementsByName(name);
+        let selected = "";
+        for (const r of radios) {
+            if (r.checked) selected = r.value;
+        }
+        const resultEl = document.getElementById(resultId);
+        if (selected.toLowerCase() === correct.toLowerCase()) {
+            resultEl.textContent = "✅ Correct!";
+            resultEl.style.color = "green";
+        } else {
+            resultEl.textContent = "❌ Try again.";
+            resultEl.style.color = "red";
+        }
+    }
+</script>
+
+</body>
+</html>
