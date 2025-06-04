@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flashcards: B1–B2 Vocabulary</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; }
+        .flashcard {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 10px auto;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .flashcard:hover { transform: scale(1.03); }
+        .back { display: none; color: #007BFF; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>📘 Flashcards: B1–B2 Vocabulary</h1>
+<p>Click a word 3 times to hear it. On the 4th click, you will see an English explanation and the Russian translation.</p>
+
+    <div class="flashcard" onclick="handleClick('consider', 'back0', 0)">
+        <div><strong>consider</strong></div>
+        <div class="back" id="back0"><strong>to think carefully about something</strong> (рассматривать, обдумывать)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('support', 'back1', 1)">
+        <div><strong>support</strong></div>
+        <div class="back" id="back1"><strong>to help or give assistance</strong> (поддерживать)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('increase', 'back2', 2)">
+        <div><strong>increase</strong></div>
+        <div class="back" id="back2"><strong>to become larger in number or size</strong> (увеличивать)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('opinion', 'back3', 3)">
+        <div><strong>opinion</strong></div>
+        <div class="back" id="back3"><strong>a belief or view about something</strong> (мнение)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('opportunity', 'back4', 4)">
+        <div><strong>opportunity</strong></div>
+        <div class="back" id="back4"><strong>a chance to do something</strong> (возможность)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('responsible', 'back5', 5)">
+        <div><strong>responsible</strong></div>
+        <div class="back" id="back5"><strong>having a duty to take care of something</strong> (ответственный)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('prepare', 'back6', 6)">
+        <div><strong>prepare</strong></div>
+        <div class="back" id="back6"><strong>to get ready for something</strong> (готовиться)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('suggest', 'back7', 7)">
+        <div><strong>suggest</strong></div>
+        <div class="back" id="back7"><strong>to offer an idea or plan</strong> (предлагать)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('experience', 'back8', 8)">
+        <div><strong>experience</strong></div>
+        <div class="back" id="back8"><strong>knowledge or skill from doing something</strong> (опыт)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('improve', 'back9', 9)">
+        <div><strong>improve</strong></div>
+        <div class="back" id="back9"><strong>to become better</strong> (улучшать)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('research', 'back10', 10)">
+        <div><strong>research</strong></div>
+        <div class="back" id="back10"><strong>careful study to find new facts</strong> (исследование)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('provide', 'back11', 11)">
+        <div><strong>provide</strong></div>
+        <div class="back" id="back11"><strong>to give or offer something</strong> (предоставлять)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('challenge', 'back12', 12)">
+        <div><strong>challenge</strong></div>
+        <div class="back" id="back12"><strong>a difficult task or situation</strong> (вызов, трудность)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('connect', 'back13', 13)">
+        <div><strong>connect</strong></div>
+        <div class="back" id="back13"><strong>to join or link things together</strong> (соединять)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('goal', 'back14', 14)">
+        <div><strong>goal</strong></div>
+        <div class="back" id="back14"><strong>something you want to achieve</strong> (цель)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('necessary', 'back15', 15)">
+        <div><strong>necessary</strong></div>
+        <div class="back" id="back15"><strong>needed or required</strong> (необходимый)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('probably', 'back16', 16)">
+        <div><strong>probably</strong></div>
+        <div class="back" id="back16"><strong>likely to happen</strong> (вероятно)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('solution', 'back17', 17)">
+        <div><strong>solution</strong></div>
+        <div class="back" id="back17"><strong>an answer to a problem</strong> (решение)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('communication', 'back18', 18)">
+        <div><strong>communication</strong></div>
+        <div class="back" id="back18"><strong>the act of sharing information</strong> (общение)</div>
+    </div>
+    
+    <div class="flashcard" onclick="handleClick('choice', 'back19', 19)">
+        <div><strong>choice</strong></div>
+        <div class="back" id="back19"><strong>a decision between two or more options</strong> (выбор)</div>
+    </div>
+    
+<script>
+let clickCounts = {};
+
+function handleClick(word, id, index) {
+    if (!clickCounts[index]) clickCounts[index] = 0;
+    clickCounts[index]++;
+
+    if (clickCounts[index] <= 3) {
+        const utterance = new SpeechSynthesisUtterance(word);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.9;
+        speechSynthesis.speak(utterance);
+    }
+
+    if (clickCounts[index] === 4) {
+        const el = document.getElementById(id);
+        el.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

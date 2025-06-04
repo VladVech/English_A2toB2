@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A Busy Day at Work</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+        h1, h2 { color: #2c3e50; }
+        audio { width: 100%; margin: 20px 0; }
+        .question { margin: 20px 0; }
+        textarea, input[type="text"] { width: 100%; padding: 8px; margin-top: 5px; }
+        .result { font-weight: bold; margin-left: 10px; }
+        button { margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <h1>A Busy Day at Work</h1>
+    <p><strong>Listen to the audio and read the script below:</strong></p>
+    <audio controls>
+        <source src="busy_day.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h2>Comprehension Questions</h2>
+<div class="question">
+<p>1. What time did David start work on Monday?</p>
+<label><input type="radio" name="q1" value="8:00_am"> 8:00 AM</label><br>
+<label><input type="radio" name="q1" value="9:00_am"> 9:00 AM</label><br>
+<label><input type="radio" name="q1" value="10:00_am"> 10:00 AM</label><br>
+<button onclick="checkChoice('q1', '8:00_am', 'r1')">Check</button>
+<div id="r1" class="result"></div>
+</div>
+<div class="question">
+<p>2. Why did he arrive early?</p>
+<label><input type="radio" name="q2" value="he_wanted_free_coffee"> He wanted free coffee</label><br>
+<label><input type="radio" name="q2" value="he_had_a_meeting"> He had a meeting</label><br>
+<label><input type="radio" name="q2" value="he_needed_to_fix_his_computer"> He needed to fix his computer</label><br>
+<button onclick="checkChoice('q2', 'he_had_a_meeting', 'r2')">Check</button>
+<div id="r2" class="result"></div>
+</div>
+<div class="question">
+<p>3. What did he eat for lunch?</p>
+<label><input type="radio" name="q3" value="a_sandwich"> A sandwich</label><br>
+<label><input type="radio" name="q3" value="pizza"> Pizza</label><br>
+<label><input type="radio" name="q3" value="he_didn’t_eat"> He didn’t eat</label><br>
+<button onclick="checkChoice('q3', 'a_sandwich', 'r3')">Check</button>
+<div id="r3" class="result"></div>
+</div>
+<div class="question">
+<p>4. What did he do in the afternoon?</p>
+<label><input type="radio" name="q4" value="took_a_break"> Took a break</label><br>
+<label><input type="radio" name="q4" value="watched_videos"> Watched videos</label><br>
+<label><input type="radio" name="q4" value="helped_a_coworker_and_made_a_presentation"> Helped a coworker and made a presentation</label><br>
+<button onclick="checkChoice('q4', 'helped_a_coworker_and_made_a_presentation', 'r4')">Check</button>
+<div id="r4" class="result"></div>
+</div>
+<div class="question">
+<p>5. How did he feel at the end of the day?</p>
+<label><input type="radio" name="q5" value="angry"> Angry</label><br>
+<label><input type="radio" name="q5" value="tired_but_happy"> Tired but happy</label><br>
+<label><input type="radio" name="q5" value="excited_and_full_of_energy"> Excited and full of energy</label><br>
+<button onclick="checkChoice('q5', 'tired_but_happy', 'r5')">Check</button>
+<div id="r5" class="result"></div>
+</div>
+<div class="question">
+<p>6. How did he go home?</p>
+<label><input type="radio" name="q6" value="by_car"> By car</label><br>
+<label><input type="radio" name="q6" value="on_foot"> On foot</label><br>
+<label><input type="radio" name="q6" value="by_train"> By train</label><br>
+<button onclick="checkChoice('q6', 'by_train', 'r6')">Check</button>
+<div id="r6" class="result"></div>
+</div>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<h2>Script</h2>
+    <p>
+On Monday, David had a very busy day at work.<br>
+He works in an office in downtown Vancouver.<br>
+He usually starts work at 9:00 AM, but that day he arrived early at 8:00 AM because he had a meeting.<br><br>
+The first thing he did was check his emails and reply to urgent messages.<br>
+Then he joined a long video call with a client from Toronto.<br>
+They talked about a new project and discussed the deadlines.<br><br>
+At lunchtime, David didn’t go outside. He ate a sandwich at his desk and continued working.<br>
+In the afternoon, he helped a coworker solve a technical issue, and later he prepared a presentation for the next day.<br><br>
+David finally finished work at 6:30 PM.<br>
+He felt tired but happy because he completed all his tasks.<br>
+After work, he took the train home and had dinner with his family.
+</p>
+
+    <script>
+        function checkTextAnswer(inputId, correctAnswer) {
+            const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+            const resultEl = document.getElementById('r' + inputId.substring(1));
+            if (userAnswer.includes(correctAnswer.toLowerCase())) {
+                resultEl.textContent = "✅ Correct!";
+                resultEl.style.color = "green";
+            } else {
+                resultEl.textContent = "❌ Try again.";
+                resultEl.style.color = "red";
+            }
+        }
+
+        function checkChoice(name, correct, resultId) {
+            const radios = document.getElementsByName(name);
+            let selected = "";
+            for (const r of radios) {
+                if (r.checked) selected = r.value;
+            }
+            const resultEl = document.getElementById(resultId);
+            if (selected === correct) {
+                resultEl.textContent = "✅ Correct!";
+                resultEl.style.color = "green";
+            } else {
+                resultEl.textContent = "❌ Try again.";
+                resultEl.style.color = "red";
+            }
+        }
+    </script>
+
+
+
+<script>
+    let mediaRecorder, audioChunks = [];
+
+    async function startRecording() {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+        mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            document.getElementById('audio').src = audioUrl;
+        };
+
+        mediaRecorder.start();
+    }
+
+    function stopRecording() {
+        mediaRecorder.stop();
+    }
+</script>
+
+
+<h2>Speaking Practice</h2>
+<p><strong>Prompt:</strong> Describe a busy day you had. Use the past tense and try to speak for at least 1 minute.</p>
+<ul>
+  <li>Last week, I had a busy day when…</li>
+  <li>I started my day by…</li>
+  <li>During the day, I had to…</li>
+  <li>I didn’t have time to…</li>
+  <li>In the evening, I…</li>
+</ul>
+
+<button onclick="startRecording()">🎙️ Start Recording</button>
+<button onclick="pauseRecording()">⏸️ Pause</button>
+<button onclick="resumeRecording()">▶️ Resume</button>
+<button onclick="stopRecording()">⏹️ Stop</button>
+<button onclick="resetAudio()">🧹 Clear</button>
+<br><br>
+<audio id="audio" controls></audio>
+
+<script>
+    let mediaRecorder, audioChunks = [], audioBlob = null, streamRef;
+
+    async function startRecording() {
+        streamRef = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(streamRef);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => {
+            if (event.data.size > 0) audioChunks.push(event.data);
+        };
+
+        mediaRecorder.onstop = () => {
+            audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            document.getElementById('audio').src = audioUrl;
+        };
+
+        mediaRecorder.start();
+    }
+
+    function pauseRecording() {
+        if (mediaRecorder && mediaRecorder.state === "recording") {
+            mediaRecorder.pause();
+        }
+    }
+
+    function resumeRecording() {
+        if (mediaRecorder && mediaRecorder.state === "paused") {
+            mediaRecorder.resume();
+        }
+    }
+
+    function stopRecording() {
+        if (mediaRecorder && (mediaRecorder.state === "recording" || mediaRecorder.state === "paused")) {
+            mediaRecorder.stop();
+        }
+    }
+
+    function resetAudio() {
+        document.getElementById('audio').src = "";
+        audioChunks = [];
+        if (streamRef) {
+            streamRef.getTracks().forEach(track => track.stop());
+        }
+    }
+</script>
+
+</body>
+</html>

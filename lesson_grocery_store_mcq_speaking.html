@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Going to the Grocery Store</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+        h1, h2 { color: #2c3e50; }
+        audio { width: 100%; margin: 20px 0; }
+        .question { margin: 20px 0; }
+        textarea, input[type="text"] { width: 100%; padding: 8px; margin-top: 5px; }
+        .result { font-weight: bold; margin-left: 10px; }
+        button { margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Going to the Grocery Store</h1>
+    <p><strong>Listen to the audio and read the script below:</strong></p>
+    <audio controls>
+        <source src="grocery_store.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h2>Comprehension Questions</h2>
+<div class="question">
+<p>1. When did Sarah go to the grocery store?</p>
+<label><input type="radio" name="q1" value="in_the_morning"> In the morning</label><br>
+<label><input type="radio" name="q1" value="after_work"> After work</label><br>
+<label><input type="radio" name="q1" value="before_lunch"> Before lunch</label><br>
+<button onclick="checkChoice('q1', 'after_work', 'r1')">Check</button>
+<div id="r1" class="result"></div>
+</div>
+<div class="question">
+<p>2. What did she bring to the store?</p>
+<label><input type="radio" name="q2" value="a_shopping_bag"> A shopping bag</label><br>
+<label><input type="radio" name="q2" value="a_friend"> A friend</label><br>
+<label><input type="radio" name="q2" value="a_list"> A list</label><br>
+<button onclick="checkChoice('q2', 'a_list', 'r2')">Check</button>
+<div id="r2" class="result"></div>
+</div>
+<div class="question">
+<p>3. What did she buy?</p>
+<label><input type="radio" name="q3" value="apples_tomatoes_pasta"> Apples, tomatoes, pasta</label><br>
+<label><input type="radio" name="q3" value="cake_meat_soda"> Cake, meat, soda</label><br>
+<label><input type="radio" name="q3" value="candy_water_chips"> Candy, water, chips</label><br>
+<button onclick="checkChoice('q3', 'apples_tomatoes_pasta', 'r3')">Check</button>
+<div id="r3" class="result"></div>
+</div>
+<div class="question">
+<p>4. How did she get home?</p>
+<label><input type="radio" name="q4" value="by_taxi"> By taxi</label><br>
+<label><input type="radio" name="q4" value="she_walked"> She walked</label><br>
+<label><input type="radio" name="q4" value="by_bike"> By bike</label><br>
+<button onclick="checkChoice('q4', 'she_walked', 'r4')">Check</button>
+<div id="r4" class="result"></div>
+</div>
+<div class="question">
+<p>5. What did she do in the evening?</p>
+<label><input type="radio" name="q5" value="went_to_sleep_early"> Went to sleep early</label><br>
+<label><input type="radio" name="q5" value="called_her_parents"> Called her parents</label><br>
+<label><input type="radio" name="q5" value="made_dinner_and_watched_a_movie"> Made dinner and watched a movie</label><br>
+<button onclick="checkChoice('q5', 'made_dinner_and_watched_a_movie', 'r5')">Check</button>
+<div id="r5" class="result"></div>
+</div>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<h2>Script</h2>
+    <p>Yesterday, Sarah went to the grocery store after work.<br>
+She needed to buy some food for the week.<br>
+She made a list at home: bread, eggs, milk, vegetables, and some fruit.<br><br>
+At the store, she found everything easily. The apples were fresh, and the tomatoes looked good.<br>
+She also bought some pasta and a bottle of olive oil.<br><br>
+After paying at the checkout, she carried her bags home.<br>
+It was a short walk, and the weather was nice.<br>
+In the evening, she made a healthy dinner and watched a movie.</p>
+
+    <script>
+        function checkTextAnswer(inputId, correctAnswer) {
+            const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+            const resultEl = document.getElementById('r' + inputId.substring(1));
+            if (userAnswer.includes(correctAnswer.toLowerCase())) {
+                resultEl.textContent = "✅ Correct!";
+                resultEl.style.color = "green";
+            } else {
+                resultEl.textContent = "❌ Try again.";
+                resultEl.style.color = "red";
+            }
+        }
+
+        function checkChoice(name, correct, resultId) {
+            const radios = document.getElementsByName(name);
+            let selected = "";
+            for (const r of radios) {
+                if (r.checked) selected = r.value;
+            }
+            const resultEl = document.getElementById(resultId);
+            if (selected === correct) {
+                resultEl.textContent = "✅ Correct!";
+                resultEl.style.color = "green";
+            } else {
+                resultEl.textContent = "❌ Try again.";
+                resultEl.style.color = "red";
+            }
+        }
+    </script>
+
+
+
+<script>
+    let mediaRecorder, audioChunks = [];
+
+    async function startRecording() {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+        mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            document.getElementById('audio').src = audioUrl;
+        };
+
+        mediaRecorder.start();
+    }
+
+    function stopRecording() {
+        mediaRecorder.stop();
+    }
+</script>
+
+
+<h2>Speaking Practice</h2>
+<p><strong>Prompt:</strong> What do you usually buy when you go shopping?</p>
+
+<p><strong>Use these sentence starters:</strong></p>
+<ul>
+  <li>I often go shopping on...</li>
+  <li>I usually buy...</li>
+  <li>I don’t like to buy...</li>
+  <li>Sometimes I also need...</li>
+  <li>After shopping, I usually...</li>
+</ul>
+
+<button onclick="startRecording()">🎙️ Start Recording</button>
+<button onclick="pauseRecording()">⏸️ Pause</button>
+<button onclick="resumeRecording()">▶️ Resume</button>
+<button onclick="stopRecording()">⏹️ Stop</button>
+<button onclick="resetAudio()">🧹 Clear</button>
+<br><br>
+<audio id="audio" controls></audio>
+
+<script>
+    let mediaRecorder, audioChunks = [], audioBlob = null, streamRef;
+
+    async function startRecording() {
+        streamRef = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(streamRef);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => {
+            if (event.data.size > 0) audioChunks.push(event.data);
+        };
+
+        mediaRecorder.onstop = () => {
+            audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            document.getElementById('audio').src = audioUrl;
+        };
+
+        mediaRecorder.start();
+    }
+
+    function pauseRecording() {
+        if (mediaRecorder && mediaRecorder.state === "recording") {
+            mediaRecorder.pause();
+        }
+    }
+
+    function resumeRecording() {
+        if (mediaRecorder && mediaRecorder.state === "paused") {
+            mediaRecorder.resume();
+        }
+    }
+
+    function stopRecording() {
+        if (mediaRecorder && (mediaRecorder.state === "recording" || mediaRecorder.state === "paused")) {
+            mediaRecorder.stop();
+        }
+    }
+
+    function resetAudio() {
+        document.getElementById('audio').src = "";
+        audioChunks = [];
+        if (streamRef) {
+            streamRef.getTracks().forEach(track => track.stop());
+        }
+    }
+</script>
+
+</body>
+</html>

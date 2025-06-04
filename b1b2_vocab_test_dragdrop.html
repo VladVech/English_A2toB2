@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Drag & Drop Vocabulary Match</title>
+<style>
+    body { font-family: Arial, sans-serif; background: #eef2f3; padding: 20px; }
+    h1 { text-align: center; }
+    .container { display: flex; flex-wrap: wrap; justify-content: space-around; }
+    .box, .target {
+        width: 40%;
+        min-height: 50px;
+        margin: 10px;
+        padding: 10px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 4px rgba(0,0,0,0.2);
+        text-align: center;
+        font-size: 18px;
+        user-select: none;
+    }
+    .target {
+        background-color: #dff0d8;
+        border: 2px dashed #aaa;
+    }
+    .box.dragging { opacity: 0.5; }
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 30px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .correct { background-color: #c8e6c9 !important; }
+    .wrong { background-color: #ffcdd2 !important; }
+</style>
+</head>
+<body>
+
+<h1>🧩 Match English Words with Their Translations</h1>
+<p style="text-align:center;">Drag the English words onto their correct Russian meanings.</p>
+<div class="container" id="dragArea">
+<div class="box" draggable="true" id="drag-goal">goal</div><div class="box" draggable="true" id="drag-solution">solution</div><div class="box" draggable="true" id="drag-provide">provide</div><div class="box" draggable="true" id="drag-opportunity">opportunity</div><div class="box" draggable="true" id="drag-prepare">prepare</div><div class="box" draggable="true" id="drag-communication">communication</div><div class="box" draggable="true" id="drag-opinion">opinion</div><div class="box" draggable="true" id="drag-responsible">responsible</div><div class="box" draggable="true" id="drag-support">support</div><div class="box" draggable="true" id="drag-improve">improve</div><div class="box" draggable="true" id="drag-choice">choice</div><div class="box" draggable="true" id="drag-suggest">suggest</div><div class="box" draggable="true" id="drag-connect">connect</div><div class="box" draggable="true" id="drag-increase">increase</div><div class="box" draggable="true" id="drag-challenge">challenge</div><div class="box" draggable="true" id="drag-research">research</div><div class="box" draggable="true" id="drag-experience">experience</div><div class="box" draggable="true" id="drag-necessary">necessary</div><div class="box" draggable="true" id="drag-probably">probably</div><div class="box" draggable="true" id="drag-consider">consider</div></div><div class="container" id="dropArea"><div class="target" data-match="consider" ondrop="drop(event)" ondragover="allowDrop(event)">рассматривать, обдумывать</div><div class="target" data-match="connect" ondrop="drop(event)" ondragover="allowDrop(event)">соединять</div><div class="target" data-match="support" ondrop="drop(event)" ondragover="allowDrop(event)">поддерживать</div><div class="target" data-match="improve" ondrop="drop(event)" ondragover="allowDrop(event)">улучшать</div><div class="target" data-match="choice" ondrop="drop(event)" ondragover="allowDrop(event)">выбор</div><div class="target" data-match="solution" ondrop="drop(event)" ondragover="allowDrop(event)">решение</div><div class="target" data-match="suggest" ondrop="drop(event)" ondragover="allowDrop(event)">предлагать</div><div class="target" data-match="prepare" ondrop="drop(event)" ondragover="allowDrop(event)">готовиться</div><div class="target" data-match="necessary" ondrop="drop(event)" ondragover="allowDrop(event)">необходимый</div><div class="target" data-match="challenge" ondrop="drop(event)" ondragover="allowDrop(event)">вызов, трудность</div><div class="target" data-match="increase" ondrop="drop(event)" ondragover="allowDrop(event)">увеличивать</div><div class="target" data-match="goal" ondrop="drop(event)" ondragover="allowDrop(event)">цель</div><div class="target" data-match="probably" ondrop="drop(event)" ondragover="allowDrop(event)">вероятно</div><div class="target" data-match="provide" ondrop="drop(event)" ondragover="allowDrop(event)">предоставлять</div><div class="target" data-match="experience" ondrop="drop(event)" ondragover="allowDrop(event)">опыт</div><div class="target" data-match="opportunity" ondrop="drop(event)" ondragover="allowDrop(event)">возможность</div><div class="target" data-match="communication" ondrop="drop(event)" ondragover="allowDrop(event)">общение</div><div class="target" data-match="responsible" ondrop="drop(event)" ondragover="allowDrop(event)">ответственный</div><div class="target" data-match="research" ondrop="drop(event)" ondragover="allowDrop(event)">исследование</div><div class="target" data-match="opinion" ondrop="drop(event)" ondragover="allowDrop(event)">мнение</div>
+</div>
+<button onclick="checkMatches()">Check Answers</button>
+<div id="result" style="text-align:center; font-weight:bold; margin-top:20px;"></div>
+
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+document.querySelectorAll('.box').forEach(el => {
+    el.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData("text", e.target.id);
+    });
+});
+
+function drop(ev) {
+    ev.preventDefault();
+    const data = ev.dataTransfer.getData("text");
+    const dragged = document.getElementById(data);
+    if (!ev.target.hasChildNodes()) {
+        ev.target.appendChild(dragged);
+    }
+}
+
+function checkMatches() {
+    let correct = 0;
+    document.querySelectorAll('.target').forEach(target => {
+        const expected = target.getAttribute("data-match");
+        const actual = target.firstChild ? target.firstChild.id.replace("drag-", "") : null;
+        if (expected === actual) {
+            target.classList.add("correct");
+            correct++;
+        } else {
+            target.classList.add("wrong");
+        }
+    });
+    document.getElementById("result").innerText = `Score: ${correct} out of ${document.querySelectorAll('.target').length}`;
+}
+</script>
+
+</body>
+</html>
