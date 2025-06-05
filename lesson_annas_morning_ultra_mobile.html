@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anna’s Morning – Interactive Listening Lesson</title>
+    
+<style>
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 24px;
+  font-size: 22px;
+  line-height: 1.8;
+}
+
+audio {
+  width: 400px;       /* сделает дорожку короче */
+  height: 100px;       /* увеличит сам элемент по высоте */
+  transform: scale(2,2); /* увеличит ВСЕ элементы внутри: кнопки и индикаторы */
+  transform-origin: left center; /* чтобы не смещался влево */
+}
+
+
+label {
+  font-size: 24px;        /* больше шрифт текста */
+  display: block;
+  line-height: 1;       /* меньше вертикального расстояния между строками */
+  margin-bottom: 4px;     /* уменьшить отступ снизу у каждой строки */
+
+input[type="radio"] {
+  transform: scale(1.8);  /* увеличить сами кружки */
+  margin-right: 12px;
+}
+
+button {
+  margin-top: 14px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border-radius: 6px;
+}
+
+.result {
+  font-size: 20px;
+  margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+    <div style="text-align: center; margin: 20px 0;">
+  <a href="index.html" style="
+    display: inline-block;
+    background-color: #555;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#333'" onmouseout="this.style.backgroundColor='#555'">
+    ⬅ Home
+  </a>
+</div>
+
+    <h1>Anna’s Morning</h1>
+    <p><strong>Listen to the audio and read the script below:</strong></p>
+    <audio controls>
+        <source src="annas_morning.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h2>Comprehension Questions</h2>
+
+<div class="question">
+  <p>1. What time does Anna wake up?</p>
+  <label><input type="radio" name="q1" value="6"> 6 o’clock</label><br>
+  <label><input type="radio" name="q1" value="7"> 7 o’clock</label><br>
+  <label><input type="radio" name="q1" value="8"> 8 o’clock</label><br>
+  <button onclick="checkChoice('q1', '7', 'r1')">Check</button>
+  <div id="r1" class="result"></div>
+</div>
+
+<div class="question">
+  <p>2. How does she go to school?</p>
+  <label><input type="radio" name="q2" value="on_foot"> On foot</label><br>
+  <label><input type="radio" name="q2" value="by_bus"> By bus</label><br>
+  <label><input type="radio" name="q2" value="by_car"> By car</label><br>
+  <button onclick="checkChoice('q2', 'by_bus', 'r2')">Check</button>
+  <div id="r2" class="result"></div>
+</div>
+
+<div class="question">
+  <p>3. What does she study?</p>
+  <label><input type="radio" name="q3" value="math_and_history"> Math and history</label><br>
+  <label><input type="radio" name="q3" value="english_and_computer_science"> English and computer science</label><br>
+  <label><input type="radio" name="q3" value="biology_and_art"> Biology and art</label><br>
+  <button onclick="checkChoice('q3', 'english_and_computer_science', 'r3')">Check</button>
+  <div id="r3" class="result"></div>
+</div>
+
+<div class="question">
+  <p>4. Where does Anna have lunch?</p>
+  <label><input type="radio" name="q4" value="at_home"> At home</label><br>
+  <label><input type="radio" name="q4" value="in_a_cafe"> In a café</label><br>
+  <label><input type="radio" name="q4" value="in_the_library"> In the library</label><br>
+  <button onclick="checkChoice('q4', 'in_a_cafe', 'r4')">Check</button>
+  <div id="r4" class="result"></div>
+</div>
+
+<div class="question">
+  <p>5. What does she do in the afternoon?</p>
+  <label><input type="radio" name="q5" value="goes_home"> Goes home</label><br>
+  <label><input type="radio" name="q5" value="goes_to_the_gym"> Goes to the gym</label><br>
+  <label><input type="radio" name="q5" value="goes_to_the_library"> Goes to the library</label><br>
+  <button onclick="checkChoice('q5', 'goes_to_the_library', 'r5')">Check</button>
+  <div id="r5" class="result"></div>
+</div>
+
+<div class="question">
+  <p>6. What does Anna do in the evening?</p>
+  <label><input type="radio" name="q6" value="plays_sports"> Plays sports</label><br>
+  <label><input type="radio" name="q6" value="watches_tv_or_chats_online"> Watches TV or chats online</label><br>
+  <label><input type="radio" name="q6" value="cooks_dinner"> Cooks dinner</label><br>
+  <button onclick="checkChoice('q6', 'watches_tv_or_chats_online', 'r6')">Check</button>
+  <div id="r6" class="result"></div>
+</div>
+
+<div class="question">
+  <p>7. What time does she go to bed?</p>
+  <label><input type="radio" name="q7" value="9"> 9 o’clock</label><br>
+  <label><input type="radio" name="q7" value="10"> 10 o’clock</label><br>
+  <label><input type="radio" name="q7" value="11"> 11 o’clock</label><br>
+  <button onclick="checkChoice('q7', '10', 'r7')">Check</button>
+  <div id="r7" class="result"></div>
+</div>
+
+<div class="question">
+  <p>8. How does Anna feel about her day?</p>
+  <label><input type="radio" name="q8" value="tired"> Tired</label><br>
+  <label><input type="radio" name="q8" value="bored"> Bored</label><br>
+  <label><input type="radio" name="q8" value="happy_and_busy"> Happy and busy</label><br>
+  <button onclick="checkChoice('q8', 'happy_and_busy', 'r8')">Check</button>
+  <div id="r8" class="result"></div>
+</div>
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<h2>Script</h2>
+    <p>Anna is a student. She lives in a small apartment in the city.<br>
+    Every morning, she wakes up at 7 o’clock. She takes a quick shower and drinks a cup of coffee.<br>
+    After breakfast, she takes the bus to school. It usually takes 20 minutes.<br><br>
+    Her first class starts at 8:30. She studies English and computer science.<br>
+    Anna likes her teachers and enjoys learning new things.<br>
+    At 12 o’clock, she has lunch with her classmates. They eat in a small café near the school.<br><br>
+    In the afternoon, Anna sometimes goes to the library. She reads books or works on her homework.<br>
+    In the evening, she watches TV or talks to her family online.<br>
+    She usually goes to bed at 10 o’clock.<br><br>
+    Anna’s days are simple, but she feels happy and busy.</p>
+
+    <script>
+        function checkTextAnswer(inputId, correctAnswer) {
+            const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+            const resultEl = document.getElementById('r' + inputId.substring(1));
+            if (userAnswer.includes(correctAnswer.toLowerCase())) {
+                resultEl.textContent = "✅ Correct!";
+                resultEl.style.color = "green";
+            } else {
+                resultEl.textContent = "❌ Try again.";
+                resultEl.style.color = "red";
+            }
+        }
+
+        function checkChoice(name, correct, resultId) {
+            const radios = document.getElementsByName(name);
+            let selected = "";
+            for (const r of radios) {
+                if (r.checked) selected = r.value;
+            }
+            const resultEl = document.getElementById(resultId);
+            if (selected === correct) {
+                resultEl.textContent = "✅ Correct!";
+                resultEl.style.color = "green";
+            } else {
+                resultEl.textContent = "❌ Try again.";
+                resultEl.style.color = "red";
+            }
+        }
+    </script>
+
+
+
+<script>
+    let mediaRecorder, audioChunks = [];
+
+    async function startRecording() {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+        mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            document.getElementById('audio').src = audioUrl;
+        };
+
+        mediaRecorder.start();
+    }
+
+    function stopRecording() {
+        mediaRecorder.stop();
+    }
+</script>
+
+
+<h2>Speaking Practice</h2>
+<p>Practice speaking by describing Anna’s typical day:</p>
+<p><strong>“What does Anna usually do during the day?”</strong></p>
+
+<p>You can use these sentence starters:</p>
+<ul>
+  <li>Anna is a student. She lives in...</li>
+  <li>Every morning, she...</li>
+  <li>She usually wakes up at...</li>
+  <li>After breakfast, she...</li>
+  <li>At school, she studies...</li>
+  <li>At lunchtime, she...</li>
+  <li>In the afternoon, Anna sometimes...</li>
+  <li>In the evening, she...</li>
+  <li>She usually goes to bed at...</li>
+  <li>Anna feels...</li>
+</ul>
+
+
+<button onclick="startRecording()">🎙️ Start Recording</button>
+<button onclick="pauseRecording()">⏸️ Pause</button>
+<button onclick="resumeRecording()">▶️ Resume</button>
+<button onclick="stopRecording()">⏹️ Stop</button>
+<button onclick="resetAudio()">🧹 Clear</button>
+<br><br>
+<audio id="audio" controls></audio>
+
+<script>
+    let mediaRecorder, audioChunks = [], audioBlob = null, streamRef;
+
+    async function startRecording() {
+        streamRef = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(streamRef);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => {
+            if (event.data.size > 0) audioChunks.push(event.data);
+        };
+
+        mediaRecorder.onstop = () => {
+            audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            document.getElementById('audio').src = audioUrl;
+        };
+
+        mediaRecorder.start();
+    }
+
+    function pauseRecording() {
+        if (mediaRecorder && mediaRecorder.state === "recording") {
+            mediaRecorder.pause();
+        }
+    }
+
+    function resumeRecording() {
+        if (mediaRecorder && mediaRecorder.state === "paused") {
+            mediaRecorder.resume();
+        }
+    }
+
+    function stopRecording() {
+        if (mediaRecorder && (mediaRecorder.state === "recording" || mediaRecorder.state === "paused")) {
+            mediaRecorder.stop();
+        }
+    }
+
+    function resetAudio() {
+        document.getElementById('audio').src = "";
+        audioChunks = [];
+        if (streamRef) {
+            streamRef.getTracks().forEach(track => track.stop());
+        }
+    }
+</script>
+<div style="text-align: center; margin: 20px 0;">
+  <a href="index.html" style="
+    display: inline-block;
+    background-color: #555;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#333'" onmouseout="this.style.backgroundColor='#555'">
+    ⬅ Home
+  </a>
+</div>
+
+</body>
+</html>

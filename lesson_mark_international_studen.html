@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mark is student from Germany – Interactive Listening Lesson</title>
+    
+<style>
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 24px;
+  font-size: 22px;
+  line-height: 1.8;
+}
+
+audio {
+  width: 400px;       /* сделает дорожку короче */
+  height: 100px;       /* увеличит сам элемент по высоте */
+  transform: scale(2,2); /* увеличит ВСЕ элементы внутри: кнопки и индикаторы */
+  transform-origin: left center; /* чтобы не смещался влево */
+}
+
+
+label {
+  font-size: 24px;        /* больше шрифт текста */
+  display: block;
+  line-height: 1;       /* меньше вертикального расстояния между строками */
+  margin-bottom: 4px;     /* уменьшить отступ снизу у каждой строки */
+
+input[type="radio"] {
+  transform: scale(1.8);  /* увеличить сами кружки */
+  margin-right: 12px;
+}
+
+button {
+  margin-top: 14px;
+  padding: 12px 24px;
+  font-size: 20px;
+  border-radius: 6px;
+}
+
+.result {
+  font-size: 20px;
+  margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+    <div style="text-align: center; margin: 20px 0;">
+  <a href="index.html" style="
+    display: inline-block;
+    background-color: #555;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#333'" onmouseout="this.style.backgroundColor='#555'">
+    ⬅ Home
+  </a>
+</div>
+
+    <h1>Mark is student from Germany</h1>
+    <p><strong>Listen to the audio and read the script below:</strong></p>
+    <audio controls>
+        <source src="mark_international_studen.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h2>Comprehension Questions</h2>
+
+<div class="question">
+  <p>1. Where is Mark from?</p>
+  <label><input type="radio" name="q1" value="germany"> Germany</label><br>
+  <label><input type="radio" name="q1" value="canada"> Canada</label><br>
+  <label><input type="radio" name="q1" value="france"> France</label><br>
+  <button onclick="checkChoice('q1', 'germany', 'r1')">Check</button>
+  <div id="r1" class="result"></div>
+</div>
+
+<div class="question">
+  <p>2. Where does Mark study?</p>
+  <label><input type="radio" name="q2" value="montreal"> Montreal</label><br>
+  <label><input type="radio" name="q2" value="ottawa"> Ottawa</label><br>
+  <label><input type="radio" name="q2" value="vancouver"> Vancouver</label><br>
+  <button onclick="checkChoice('q2', 'ottawa', 'r2')">Check</button>
+  <div id="r2" class="result"></div>
+</div>
+
+<div class="question">
+  <p>3. What does Mark study?</p>
+  <label><input type="radio" name="q3" value="english"> English</label><br>
+  <label><input type="radio" name="q3" value="computer_science"> Computer science</label><br>
+  <label><input type="radio" name="q3" value="marketing"> Marketing</label><br>
+  <button onclick="checkChoice('q3', 'computer_science', 'r3')">Check</button>
+  <div id="r3" class="result"></div>
+</div>
+
+<div class="question">
+  <p>4. When did Mark arrive in Canada?</p>
+  <label><input type="radio" name="q4" value="january"> January</label><br>
+  <label><input type="radio" name="q4" value="september"> September</label><br>
+  <label><input type="radio" name="q4" value="june"> June</label><br>
+  <button onclick="checkChoice('q4', 'september', 'r4')">Check</button>
+  <div id="r4" class="result"></div>
+</div>
+
+<div class="question">
+  <p>5. What kind of job does Mark have?</p>
+  <label><input type="radio" name="q5" value="full_time"> Full-time</label><br>
+  <label><input type="radio" name="q5" value="freelance"> Freelance</label><br>
+  <label><input type="radio" name="q5" value="part_time"> Part-time</label><br>
+  <button onclick="checkChoice('q5', 'part_time', 'r5')">Check</button>
+  <div id="r5" class="result"></div>
+</div>
+
+<div class="question">
+  <p>6. Where does he work?</p>
+  <label><input type="radio" name="q6" value="restaurant"> A restaurant</label><br>
+  <label><input type="radio" name="q6" value="support_company"> An IT support company</label><br>
+  <label><input type="radio" name="q6" value="library"> A library</label><br>
+  <button onclick="checkChoice('q6', 'support_company', 'r6')">Check</button>
+  <div id="r6" class="result"></div>
+</div>
+
+<div class="question">
+  <p>7. When does Mark usually work?</p>
+  <label><input type="radio" name="q7" value="mornings"> Mornings</label><br>
+  <label><input type="radio" name="q7" value="afternoons"> Afternoons</label><br>
+  <label><input type="radio" name="q7" value="evenings"> Evenings</label><br>
+  <button onclick="checkChoice('q7', 'evenings', 'r7')">Check</button>
+  <div id="r7" class="result"></div>
+</div>
+
+<div class="question">
+  <p>8. How many evenings a week does Mark work?</p>
+  <label><input type="radio" name="q8" value="2"> Two</label><br>
+  <label><input type="radio" name="q8" value="3"> Three</label><br>
+  <label><input type="radio" name="q8" value="4"> Four</label><br>
+  <button onclick="checkChoice('q8', '3', 'r8')">Check</button>
+  <div id="r8" class="result"></div>
+</div>
+
+<div class="question">
+  <p>9. What skill has Mark improved?</p>
+  <label><input type="radio" name="q9" value="math"> Math</label><br>
+  <label><input type="radio" name="q9" value="vocabulary_and_confidence"> Vocabulary and confidence</label><br>
+  <label><input type="radio" name="q9" value="writing"> Writing</label><br>
+  <button onclick="checkChoice('q9', 'vocabulary_and_confidence', 'r9')">Check</button>
+  <div id="r9" class="result"></div>
+</div>
+
+<div class="question">
+  <p>10. What kind of projects does Mark often do?</p>
+  <label><input type="radio" name="q10" value="solo"> Solo projects</label><br>
+  <label><input type="radio" name="q10" value="group"> Group projects</label><br>
+  <label><input type="radio" name="q10" value="creative"> Creative projects</label><br>
+  <button onclick="checkChoice('q10', 'group', 'r10')">Check</button>
+  <div id="r10" class="result"></div>
+</div>
+
+<div class="question">
+  <p>11. What is important in these projects?</p>
+  <label><input type="radio" name="q11" value="speed"> Speed</label><br>
+  <label><input type="radio" name="q11" value="design"> Design</label><br>
+  <label><input type="radio" name="q11" value="communication_and_teamwork"> Communication and teamwork</label><br>
+  <button onclick="checkChoice('q11', 'communication_and_teamwork', 'r11')">Check</button>
+  <div id="r11" class="result"></div>
+</div>
+
+<div class="question">
+  <p>12. What does Mark do on weekends?</p>
+  <label><input type="radio" name="q12" value="stays_home"> Stays at home</label><br>
+  <label><input type="radio" name="q12" value="explores_city"> Explores the city</label><br>
+  <label><input type="radio" name="q12" value="works_more"> Works more</label><br>
+  <button onclick="checkChoice('q12', 'explores_city', 'r12')">Check</button>
+  <div id="r12" class="result"></div>
+</div>
+
+<div class="question">
+  <p>13. What kind of events does he attend?</p>
+  <label><input type="radio" name="q13" value="sports"> Sports events</label><br>
+  <label><input type="radio" name="q13" value="networking"> Networking events</label><br>
+  <label><input type="radio" name="q13" value="music"> Music festivals</label><br>
+  <button onclick="checkChoice('q13', 'networking', 'r13')">Check</button>
+  <div id="r13" class="result"></div>
+</div>
+
+<div class="question">
+  <p>14. What does Mark say about life in a new country?</p>
+  <label><input type="radio" name="q14" value="easy"> It is easy</label><br>
+  <label><input type="radio" name="q14" value="boring"> It is boring</label><br>
+  <label><input type="radio" name="q14" value="challenging"> It is challenging</label><br>
+  <button onclick="checkChoice('q14', 'challenging', 'r14')">Check</button>
+  <div id="r14" class="result"></div>
+</div>
+
+<div class="question">
+  <p>15. What does Mark hope to get?</p>
+  <label><input type="radio" name="q15" value="a_car"> A car</label><br>
+  <label><input type="radio" name="q15" value="permanent_residency"> Permanent residency</label><br>
+  <label><input type="radio" name="q15" value="scholarship"> A scholarship</label><br>
+  <button onclick="checkChoice('q15', 'permanent_residency', 'r15')">Check</button>
+  <div id="r15" class="result"></div>
+</div>
+
+<div class="question">
+  <p>16. What is his dream?</p>
+  <label><input type="radio" name="q16" value="start_school"> Start a school</label><br>
+  <label><input type="radio" name="q16" value="start_company"> Start a tech company</label><br>
+  <label><input type="radio" name="q16" value="move_home"> Move back home</label><br>
+  <button onclick="checkChoice('q16', 'start_company', 'r16')">Check</button>
+  <div id="r16" class="result"></div>
+</div>
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+<h2>Script</h2>
+    <p>Mark is an international student from Germany who moved to Canada to study computer science at a university in Ottawa.
+He arrived last September and has already completed two semesters.<br><br>
+
+In addition to his studies, Mark works part-time at a local IT support company.
+Balancing work and school is not easy, but he manages his time carefully.
+He usually attends lectures during the day and works three evenings a week.<br><br>
+
+Mark says that studying in English has improved both his technical vocabulary and his confidence when speaking.
+He often participates in group projects, where communication and teamwork are essential.<br><br>
+
+On weekends, Mark spends time exploring the city, attending networking events, or meeting with friends from different countries.<br><br>
+
+Although life in a new country can be challenging, Mark believes the experience will help him in the future.
+His goal is to gain permanent residency and eventually start his own tech company in Canada.</p>
+
+    <script>
+        function checkTextAnswer(inputId, correctAnswer) {
+            const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
+            const resultEl = document.getElementById('r' + inputId.substring(1));
+            if (userAnswer.includes(correctAnswer.toLowerCase())) {
+                resultEl.textContent = "✅ Correct!";
+                resultEl.style.color = "green";
+            } else {
+                resultEl.textContent = "❌ Try again.";
+                resultEl.style.color = "red";
+            }
+        }
+
+        function checkChoice(name, correct, resultId) {
+            const radios = document.getElementsByName(name);
+            let selected = "";
+            for (const r of radios) {
+                if (r.checked) selected = r.value;
+            }
+            const resultEl = document.getElementById(resultId);
+            if (selected === correct) {
+                resultEl.textContent = "✅ Correct!";
+                resultEl.style.color = "green";
+            } else {
+                resultEl.textContent = "❌ Try again.";
+                resultEl.style.color = "red";
+            }
+        }
+    </script>
+
+
+
+<script>
+    let mediaRecorder, audioChunks = [];
+
+    async function startRecording() {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(stream);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
+        mediaRecorder.onstop = () => {
+            const audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            document.getElementById('audio').src = audioUrl;
+        };
+
+        mediaRecorder.start();
+    }
+
+    function stopRecording() {
+        mediaRecorder.stop();
+    }
+</script>
+
+
+<h2>Speaking Practice</h2>
+<p>Practice speaking by describing Anna’s typical day:</p>
+<p><strong>“What does Anna usually do during the day?”</strong></p>
+
+<p>You can use these sentence starters:</p>
+<ul>
+  <li>Anna is a student. She lives in...</li>
+  <li>Every morning, she...</li>
+  <li>She usually wakes up at...</li>
+  <li>After breakfast, she...</li>
+  <li>At school, she studies...</li>
+  <li>At lunchtime, she...</li>
+  <li>In the afternoon, Anna sometimes...</li>
+  <li>In the evening, she...</li>
+  <li>She usually goes to bed at...</li>
+  <li>Anna feels...</li>
+</ul>
+
+
+<button onclick="startRecording()">🎙️ Start Recording</button>
+<button onclick="pauseRecording()">⏸️ Pause</button>
+<button onclick="resumeRecording()">▶️ Resume</button>
+<button onclick="stopRecording()">⏹️ Stop</button>
+<button onclick="resetAudio()">🧹 Clear</button>
+<br><br>
+<audio id="audio" controls></audio>
+
+<script>
+    let mediaRecorder, audioChunks = [], audioBlob = null, streamRef;
+
+    async function startRecording() {
+        streamRef = await navigator.mediaDevices.getUserMedia({ audio: true });
+        mediaRecorder = new MediaRecorder(streamRef);
+        audioChunks = [];
+
+        mediaRecorder.ondataavailable = event => {
+            if (event.data.size > 0) audioChunks.push(event.data);
+        };
+
+        mediaRecorder.onstop = () => {
+            audioBlob = new Blob(audioChunks);
+            const audioUrl = URL.createObjectURL(audioBlob);
+            document.getElementById('audio').src = audioUrl;
+        };
+
+        mediaRecorder.start();
+    }
+
+    function pauseRecording() {
+        if (mediaRecorder && mediaRecorder.state === "recording") {
+            mediaRecorder.pause();
+        }
+    }
+
+    function resumeRecording() {
+        if (mediaRecorder && mediaRecorder.state === "paused") {
+            mediaRecorder.resume();
+        }
+    }
+
+    function stopRecording() {
+        if (mediaRecorder && (mediaRecorder.state === "recording" || mediaRecorder.state === "paused")) {
+            mediaRecorder.stop();
+        }
+    }
+
+    function resetAudio() {
+        document.getElementById('audio').src = "";
+        audioChunks = [];
+        if (streamRef) {
+            streamRef.getTracks().forEach(track => track.stop());
+        }
+    }
+</script>
+<div style="text-align: center; margin: 20px 0;">
+  <a href="index.html" style="
+    display: inline-block;
+    background-color: #555;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#333'" onmouseout="this.style.backgroundColor='#555'">
+    ⬅ Home
+  </a>
+</div>
+
+</body>
+</html>
